@@ -32,6 +32,9 @@ f.write('''
         <meta charset='utf8'>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/home/sdlyyxy/project/md_preview/github-markdown.css">
+        <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/github.min.css" rel="stylesheet">  
+        <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>  
+        <script >hljs.initHighlightingOnLoad();</script>  
         <style>
             .markdown-body {
             box-sizing: border-box;
