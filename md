@@ -1,19 +1,24 @@
 #!/usr/bin/python
-import sys,os
+import sys
+import os
+
+
 def usage():
     print('Usage: md <filename>')
+
 
 def fileError():
     print('File error')
 
-inputFile=''
-if(len(sys.argv)>1):
-    inputFile=sys.argv[1]
+
+inputFile = ''
+if(len(sys.argv) > 1):
+    inputFile = sys.argv[1]
 else:
     usage()
     exit()
 try:
-    f=open(inputFile,'r')
+    f = open(inputFile, 'r')
     f.close()
 except:
     fileError()
@@ -23,11 +28,11 @@ try:
     os.mkdir('/tmp/md_preview')
 except:
     print('hehe')
-tmpPath='/tmp/md_preview/%s.tmp'%inputFile
-htmlPath='/tmp/md_preview/%s.html'%inputFile
-os.system("cmark %s>%s"%(inputFile,tmpPath))
-f=open(htmlPath,'w')
-tmpf=open(tmpPath,'r')
+tmpPath = '/tmp/md_preview/%s.tmp' % inputFile
+htmlPath = '/tmp/md_preview/%s.html' % inputFile
+os.system("cmark %s>%s" % (inputFile, tmpPath))
+f = open(htmlPath, 'w')
+tmpf = open(tmpPath, 'r')
 f.write('''
         <!doctype html>
         <html>
@@ -59,7 +64,7 @@ f.write('''
             </article>
         </body>
         </html>
-'''%tmpf.read())
+''' % tmpf.read())
 f.close()
 tmpf.close()
-os.system('firefox %s'%htmlPath)
+os.system('firefox %s' % htmlPath)
