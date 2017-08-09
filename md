@@ -11,7 +11,7 @@ if(len(sys.argv)>1):
     inputFile=sys.argv[1]
 else:
     usage()
-    exit();
+    exit()
 try:
     f=open(inputFile,'r')
     f.close()
@@ -19,7 +19,10 @@ except:
     fileError()
     exit()
 
-# os.system('mkdir /tmp/md_preview')
+try:
+    os.mkdir('/tmp/md_preview')
+except:
+    print('hehe')
 tmpPath='/tmp/md_preview/%s.tmp'%inputFile
 htmlPath='/tmp/md_preview/%s.html'%inputFile
 os.system("cmark %s>%s"%(inputFile,tmpPath))
